@@ -1,0 +1,136 @@
+<ns0:project xmlns:ns0="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <ns0:modelVersion>4.0.0</ns0:modelVersion>
+    <ns0:parent>
+        <ns0:groupId>org.springframework.boot</ns0:groupId>
+        <ns0:artifactId>spring-boot-starter-parent</ns0:artifactId>
+        <ns0:version>2.1.6.RELEASE</ns0:version>
+        <ns0:relativePath /> 
+    </ns0:parent>
+<ns0:groupId>example</ns0:groupId>
+    <ns0:artifactId>scala-spring</ns0:artifactId>
+    <ns0:version>1.0-SNAPSHOT</ns0:version>
+    <ns0:properties>
+        <ns0:encoding>UTF-8</ns0:encoding>
+    </ns0:properties>
+  <ns0:profiles>
+        <ns0:profile>
+            <ns0:id>scala-2.12</ns0:id>
+            <ns0:activation>
+                <ns0:activeByDefault>true</ns0:activeByDefault>
+            </ns0:activation>
+            <ns0:properties>
+                <ns0:java.version>1.8</ns0:java.version>
+                <ns0:kotlin.compiler.incremental>true</ns0:kotlin.compiler.incremental>
+                <ns0:maven.compiler.target>1.8</ns0:maven.compiler.target>
+                <ns0:maven.compiler.source>1.8</ns0:maven.compiler.source>
+                <ns0:scala.version>2.12.7</ns0:scala.version>
+                <ns0:scala.compat.version>2.12</ns0:scala.compat.version>
+            </ns0:properties>
+            <ns0:dependencies>
+	             <ns0:dependency>
+          			<ns0:groupId>org.springframework.boot</ns0:groupId>
+          			<ns0:artifactId>spring-boot-starter-web</ns0:artifactId>
+          		</ns0:dependency>
+            		
+                <ns0:dependency>
+                    <ns0:groupId>org.springframework.security</ns0:groupId>
+                    <ns0:artifactId>spring-security-web</ns0:artifactId>
+                    <ns0:version>5.0.0.RELEASE</ns0:version>
+                </ns0:dependency>
+              	
+              		<ns0:dependency>
+              		    <ns0:groupId>javax.xml.bind</ns0:groupId>
+              		    <ns0:artifactId>jaxb-api</ns0:artifactId>
+              		    <ns0:version>2.3.1</ns0:version>
+              		</ns0:dependency>
+                <ns0:dependency>
+                    <ns0:groupId>commons-codec</ns0:groupId>
+                    <ns0:artifactId>commons-codec</ns0:artifactId>
+                    <ns0:version>1.15</ns0:version>
+                </ns0:dependency>
+                 
+                 <ns0:dependency>
+                     <ns0:groupId>org.springframework.boot</ns0:groupId>
+                     <ns0:artifactId>spring-boot-starter-thymeleaf</ns0:artifactId>
+                 </ns0:dependency>
+                 
+                 <ns0:dependency>
+                     <ns0:groupId>org.thymeleaf.extras</ns0:groupId>
+                     <ns0:artifactId>thymeleaf-extras-springsecurity5</ns0:artifactId>
+                     <ns0:version>3.0.4.RELEASE</ns0:version>
+                 </ns0:dependency>
+                 <ns0:dependency>
+                     <ns0:groupId>org.springframework.security</ns0:groupId>
+                     <ns0:artifactId>spring-security-web</ns0:artifactId>
+                     <ns0:version>5.0.0.RELEASE</ns0:version>
+                 </ns0:dependency>
+                 <ns0:dependency>
+                     <ns0:groupId>org.springframework.security</ns0:groupId>
+                     <ns0:artifactId>spring-security-core</ns0:artifactId>
+                     <ns0:version>5.0.0.RELEASE</ns0:version>
+                 </ns0:dependency>
+                 <ns0:dependency>
+                     <ns0:groupId>org.springframework.security</ns0:groupId>
+                     <ns0:artifactId>spring-security-config</ns0:artifactId>
+                     <ns0:version>5.0.0.RELEASE</ns0:version>
+                 </ns0:dependency>
+                 
+                 <ns0:dependency>
+                     <ns0:groupId>org.springframework.security</ns0:groupId>
+                     <ns0:artifactId>spring-security-crypto</ns0:artifactId>
+                     <ns0:version>5.3.2.RELEASE</ns0:version>
+                 </ns0:dependency>
+                
+            		
+            		<ns0:dependency>
+            		    <ns0:groupId>org.thymeleaf.extras</ns0:groupId>
+            		    <ns0:artifactId>thymeleaf-extras-springsecurity5</ns0:artifactId>
+            		    <ns0:version>3.0.4.RELEASE</ns0:version>
+            		</ns0:dependency>
+                <ns0:dependency>
+                    <ns0:groupId>org.scala-lang</ns0:groupId>
+                    <ns0:artifactId>scala-library</ns0:artifactId>
+                    <ns0:version>${scala.version}</ns0:version>
+                </ns0:dependency>
+                <ns0:dependency>
+                    <ns0:groupId>org.bouncycastle</ns0:groupId>
+                    <ns0:artifactId>bcpkix-jdk15on</ns0:artifactId>
+                    <ns0:version>1.65</ns0:version>
+                </ns0:dependency>
+            </ns0:dependencies>
+        </ns0:profile>
+    </ns0:profiles>
+    <ns0:build>
+        <ns0:sourceDirectory>src/main/scala</ns0:sourceDirectory>
+        <ns0:testSourceDirectory>src/test/scala</ns0:testSourceDirectory>
+        <ns0:plugins>
+            <ns0:plugin>
+                <ns0:groupId>org.apache.maven.plugins</ns0:groupId>
+                <ns0:artifactId>maven-compiler-plugin</ns0:artifactId>
+                <ns0:version>3.8.0</ns0:version>
+            </ns0:plugin>
+            <ns0:plugin>
+                <ns0:groupId>net.alchim31.maven</ns0:groupId>
+                <ns0:artifactId>scala-maven-plugin</ns0:artifactId>
+                <ns0:version>3.4.4</ns0:version>
+                <ns0:executions>
+                    <ns0:execution>
+                        <ns0:goals>
+                            <ns0:goal>compile</ns0:goal>
+                            <ns0:goal>testCompile</ns0:goal>
+                        </ns0:goals>
+                    </ns0:execution>
+                </ns0:executions>
+                <ns0:configuration>
+                  <ns0:launchers>
+                     <ns0:launcher>
+                       <ns0:id>foo</ns0:id>
+                       <ns0:mainClass>example.MyApp</ns0:mainClass>
+                     </ns0:launcher>
+                     
+                   </ns0:launchers>
+                </ns0:configuration>
+            </ns0:plugin>
+        </ns0:plugins>
+    </ns0:build>
+</ns0:project>
